@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@layer utilities {
+  .text-brand-gradient {
+    background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl;
+  }
+
+  .section-subheading {
+    @apply mt-4 text-lg text-gray-600 max-w-2xl;
+  }
+}
