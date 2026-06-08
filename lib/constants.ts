@@ -6,6 +6,21 @@ export const HERO_APP_SCREENSHOTS = [
   'https://res.cloudinary.com/njh101010/image/upload/v1780935708/anygym/website/screenshots/app3.png',
 ] as const;
 
+export const ADMIN_SCREENSHOTS = [
+  {
+    src: 'https://res.cloudinary.com/njh101010/image/upload/v1780949268/anygym/website/screenshots/admin-dashboard.png',
+    alt: 'anygym admin dashboard',
+  },
+  {
+    src: 'https://res.cloudinary.com/njh101010/image/upload/v1780949268/anygym/website/screenshots/admin-revenue.png',
+    alt: 'anygym revenue analytics',
+  },
+  {
+    src: 'https://res.cloudinary.com/njh101010/image/upload/v1780949268/anygym/website/screenshots/admin-gyms.png',
+    alt: 'anygym gym management',
+  },
+] as const;
+
 export const LOCATION_OPTIONS = [
   { value: '1-5', label: '1–5 locations' },
   { value: '6-10', label: '6–10 locations' },

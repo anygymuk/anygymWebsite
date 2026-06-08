@@ -8,7 +8,6 @@ const footerLinks = [
   { href: '#gym-groups', label: 'Gym groups' },
   { href: '#investors', label: 'Investors' },
   { href: '/privacy', label: 'Privacy policy' },
-  { href: '/terms', label: 'Terms of service' },
 ];
 
 export default function Footer() {

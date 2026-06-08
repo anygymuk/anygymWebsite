@@ -1,5 +1,6 @@
 import BrowserMockup from '@/components/ui/BrowserMockup';
 import GymGroupForm from '@/components/forms/GymGroupForm';
+import { ADMIN_SCREENSHOTS } from '@/lib/constants';
 
 const benefits = [
   {
@@ -43,21 +44,9 @@ export default function GymGroupsSection() {
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          <BrowserMockup
-            src="/screenshots/admin-dashboard.svg"
-            alt="anygym admin dashboard"
-            title="dashboard"
-          />
-          <BrowserMockup
-            src="/screenshots/admin-gyms.svg"
-            alt="anygym gym management"
-            title="gyms"
-          />
-          <BrowserMockup
-            src="/screenshots/admin-revenue.svg"
-            alt="anygym revenue analytics"
-            title="revenue"
-          />
+          {ADMIN_SCREENSHOTS.map((screenshot) => (
+            <BrowserMockup key={screenshot.src} src={screenshot.src} alt={screenshot.alt} />
+          ))}
         </div>
 
         <div className="mt-16 mx-auto max-w-2xl">
