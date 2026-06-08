@@ -1,6 +1,6 @@
 import Button from '@/components/ui/Button';
 import DeviceMockup from '@/components/ui/DeviceMockup';
-import { APP_URL } from '@/lib/constants';
+import { HERO_APP_SCREENSHOTS } from '@/lib/constants';
 
 export default function Hero() {
   return (
@@ -22,8 +22,7 @@ export default function Hero() {
               Access thousands of gyms across the UK with a single subscription.
               Find gyms, generate passes, and train anywhere in the network.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button href={APP_URL}>Get started</Button>
+            <div className="mt-8">
               <Button href="#gym-groups" variant="outline">
                 Partner with us
               </Button>
@@ -31,12 +30,9 @@ export default function Hero() {
           </div>
 
           <DeviceMockup
-            screenshots={[
-              '/screenshots/anygym-home.png',
-              '/screenshots/search-screen.png',
-              '/screenshots/standard-model.png',
-            ]}
+            screenshots={[...HERO_APP_SCREENSHOTS]}
             alt="anygym app"
+            showBezel={false}
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
-import Button from '@/components/ui/Button';
+import NewsletterForm from '@/components/forms/NewsletterForm';
 import DeviceMockup from '@/components/ui/DeviceMockup';
-import { APP_URL, MEMBERSHIP_TIERS } from '@/lib/constants';
+import { HERO_APP_SCREENSHOTS, MEMBERSHIP_TIERS } from '@/lib/constants';
 
 const features = [
   {
@@ -62,19 +62,27 @@ export default function MembersSection() {
               ))}
             </div>
 
-            <div className="mt-8">
-              <Button href={APP_URL}>Get started</Button>
+            <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900">Join the waitlist</h3>
+              <p className="mt-2 text-sm text-gray-600">
+                Be first to know when anygym launches in your area. We&apos;ll email you when
+                memberships go live.
+              </p>
+              <div className="mt-4">
+                <NewsletterForm
+                  variant="light"
+                  submitLabel="Join waitlist"
+                  successMessage="You're on the list! We'll be in touch when anygym launches."
+                />
+              </div>
             </div>
           </div>
 
           <div className="order-1 lg:order-2">
             <DeviceMockup
-              screenshots={[
-                '/screenshots/anygym-home.png',
-                '/screenshots/search-screen.png',
-                '/screenshots/standard-model.png',
-              ]}
+              screenshots={[...HERO_APP_SCREENSHOTS]}
               alt="anygym member app"
+              showBezel={false}
             />
           </div>
         </div>

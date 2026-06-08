@@ -7,7 +7,7 @@ import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
 import Textarea from '@/components/ui/Textarea';
 import { LOCATION_OPTIONS } from '@/lib/constants';
-import { submitNetlifyForm, type FormStatus } from '@/lib/netlify-form';
+import { submitGymGroup, type FormStatus } from '@/lib/form-status';
 import { gymGroupSchema } from '@/lib/validation';
 
 export default function GymGroupForm() {
@@ -42,14 +42,7 @@ export default function GymGroupForm() {
 
     setStatus('submitting');
     try {
-      await submitNetlifyForm('gym-group', {
-        contactName: result.data.contactName,
-        email: result.data.email,
-        companyName: result.data.companyName,
-        locations: result.data.locations,
-        phone: result.data.phone || '',
-        message: result.data.message || '',
-      });
+      await submitGymGroup(result.data);
       setStatus('success');
       setForm({
         contactName: '',
@@ -59,35 +52,27 @@ export default function GymGroupForm() {
         phone: '',
         message: '',
       });
-    } catch {
+    } catch (err) {
       setStatus('error');
+      setErrors({
+        _form: err instanceof Error ? err.message : 'Something went wrong. Please try again.',
+      });
     }
   }
 
   return (
-    <form
-      name="gym-group"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-      className="space-y-4"
-    >
-      <input type="hidden" name="form-name" value="gym-group" />
-      <p className="hidden">
-        <label>
-          Don&apos;t fill this out: <input name="bot-field" />
-        </label>
-      </p>
-
+    <form onSubmit={handleSubmit} className="space-y-4">
       {status === 'success' && (
         <FormMessage
           status="success"
           message="Thank you! We'll be in touch shortly to discuss partnership."
         />
       )}
-      {status === 'error' && (
-        <FormMessage status="error" message="Something went wrong. Please try again." />
+      {(status === 'error' || errors._form) && (
+        <FormMessage
+          status="error"
+          message={errors._form || 'Something went wrong. Please try again.'}
+        />
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">

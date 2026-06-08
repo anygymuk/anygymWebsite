@@ -1,5 +1,10 @@
-export const APP_URL = 'https://app.any-gym.com';
 export const CONTACT_EMAIL = 'contact@any-gym.com';
+
+export const HERO_APP_SCREENSHOTS = [
+  'https://res.cloudinary.com/njh101010/image/upload/v1780935709/anygym/website/screenshots/app1.png',
+  'https://res.cloudinary.com/njh101010/image/upload/v1780935709/anygym/website/screenshots/app2.png',
+  'https://res.cloudinary.com/njh101010/image/upload/v1780935708/anygym/website/screenshots/app3.png',
+] as const;
 
 export const LOCATION_OPTIONS = [
   { value: '1-5', label: '1–5 locations' },

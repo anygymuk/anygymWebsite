@@ -3,8 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Button from '@/components/ui/Button';
-
 const navLinks = [
   { href: '#how-it-works', label: 'How it works' },
   { href: '#members', label: 'Members' },
@@ -50,9 +48,6 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <Button href="https://app.any-gym.com" className="!px-4 !py-2">
-            Get started
-          </Button>
         </nav>
 
         <button
@@ -84,9 +79,6 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <Button href="https://app.any-gym.com" className="mt-2 w-full">
-              Get started
-            </Button>
           </nav>
         </div>
       )}

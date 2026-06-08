@@ -7,7 +7,7 @@ import Input from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
 import Textarea from '@/components/ui/Textarea';
 import { INVESTMENT_OPTIONS } from '@/lib/constants';
-import { submitNetlifyForm, type FormStatus } from '@/lib/netlify-form';
+import { submitInvestor, type FormStatus } from '@/lib/form-status';
 import { investorSchema } from '@/lib/validation';
 
 export default function InvestorForm() {
@@ -41,26 +41,7 @@ export default function InvestorForm() {
 
     setStatus('submitting');
     try {
-      const [apiResponse] = await Promise.allSettled([
-        fetch('/api/investor-enquiry', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(result.data),
-        }),
-        submitNetlifyForm('investor', {
-          fullName: result.data.fullName,
-          email: result.data.email,
-          company: result.data.company || '',
-          investmentRange: result.data.investmentRange || '',
-          message: result.data.message || '',
-        }),
-      ]);
-
-      if (apiResponse.status === 'fulfilled' && !apiResponse.value.ok) {
-        const body = await apiResponse.value.json().catch(() => ({}));
-        throw new Error(body.error || 'Submission failed');
-      }
-
+      await submitInvestor(result.data);
       setStatus('success');
       setForm({
         fullName: '',

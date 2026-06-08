@@ -20,7 +20,7 @@ const config: Config = {
         'brand-gradient': 'linear-gradient(135deg, #FFD700 0%, #FF6B6B 100%)',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
       },
     },
   },
