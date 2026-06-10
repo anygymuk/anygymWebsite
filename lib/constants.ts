@@ -37,9 +37,3 @@ export const INVESTMENT_OPTIONS = [
   { value: '1m-plus', label: '£1m+' },
   { value: 'strategic', label: 'Strategic partnership' },
 ];
-
-export const MEMBERSHIP_TIERS = [
-  { name: 'Basic', price: '£29', period: '/month', description: 'Essential gym access across the network' },
-  { name: 'Premium', price: '£49', period: '/month', description: 'More visits and premium gym access' },
-  { name: 'Elite', price: '£79', period: '/month', description: 'Unlimited access to all partner gyms' },
-];

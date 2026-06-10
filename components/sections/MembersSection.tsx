@@ -1,6 +1,6 @@
 import NewsletterForm from '@/components/forms/NewsletterForm';
 import DeviceMockup from '@/components/ui/DeviceMockup';
-import { HERO_APP_SCREENSHOTS, MEMBERSHIP_TIERS } from '@/lib/constants';
+import { HERO_APP_SCREENSHOTS } from '@/lib/constants';
 
 const features = [
   {
@@ -46,21 +46,6 @@ export default function MembersSection() {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {MEMBERSHIP_TIERS.map((tier) => (
-                <div
-                  key={tier.name}
-                  className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm"
-                >
-                  <p className="text-sm font-medium text-gray-500">{tier.name}</p>
-                  <p className="mt-1 text-2xl font-bold text-gray-900">
-                    {tier.price}
-                    <span className="text-sm font-normal text-gray-500">{tier.period}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
 
             <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
               <h3 className="text-xl font-bold text-gray-900">Join the waitlist</h3>
